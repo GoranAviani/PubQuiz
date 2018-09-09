@@ -5,6 +5,27 @@ def main_menu():
                         "\n\nYour command: ")
     return userCommand
 
+quizQuestions = [
+{
+    "Question": "What is the name of capital of Sweden?",
+    "a": "Oslo",
+    "b": "Stockholm",
+    "c": "Helsinki",
+    "d": "Malmo",
+    "answer": "b"
+},
+{
+    "Question": "test?",
+    "a": "test1",
+    "b": "test2",
+    "c": "test3",
+    "d": "test4",
+    "answer": "b"
+}
+]
+
+def do_question():
+    
 
 
 def main():
@@ -25,7 +46,7 @@ def main():
 
             # start game
         elif userCommand.upper() == "G":
-            print("game has started")
+            do_question()
 
         else:
             print("I don't understand that command.")
