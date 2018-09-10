@@ -32,11 +32,14 @@ def load_from_file():
 
 
 def process_questions(quizQuestions):
-    #idea is to process questions by number of needed questions for this quiz, and taht questions dont repeat.
+    #idea is to process questions by number of needed questions for this quiz,
+    #  and taht questions dont repeat in a single quiz (thats why id).
+    #TODO categorise questions
     print("quiz questions are being processed..")
     pass
 
 def choose_game_options(quizQuestions):
+    #TODO categorese questions
     process_questions(quizQuestions)
 
 
