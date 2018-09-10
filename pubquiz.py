@@ -5,30 +5,43 @@ def main_menu():
                         "\n\nYour command: ")
     return userCommand
 
-quizQuestions = [
-{
-    "Question": "What is the name of capital of Sweden?",
-    "a": "Oslo",
-    "b": "Stockholm",
-    "c": "Helsinki",
-    "d": "Malmo",
-    "answer": "b"
-},
-{
-    "Question": "test?",
-    "a": "test1",
-    "b": "test2",
-    "c": "test3",
-    "d": "test4",
-    "answer": "b"
-}
-]
 
-def do_question():
-    
+
+def load_from_file():
+    quizQuestions = [
+        {
+            "id": 1,
+            "Question": "What is the name of capital of Sweden?",
+            "a": "Oslo",
+            "b": "Stockholm",
+            "c": "Helsinki",
+            "d": "Malmo",
+            "answer": "b"
+        },
+        {
+            "id": 2,
+            "Question": "test?",
+            "a": "test1",
+            "b": "test2",
+            "c": "test3",
+            "d": "test4",
+            "answer": "b"
+        }
+    ]
+    return quizQuestions
+
+
+def process_questions(quizQuestions):
+    #idea is to process questions by number of needed questions for this quiz, and taht questions dont repeat.
+    print("quiz questions are being processed..")
+    pass
+
+def choose_game_options(quizQuestions):
+    process_questions(quizQuestions)
 
 
 def main():
+    quizQuestions = (load_from_file())
 
     while True:
         userCommand = main_menu()
@@ -46,7 +59,8 @@ def main():
 
             # start game
         elif userCommand.upper() == "G":
-            do_question()
+            choose_game_options(quizQuestions)
+
 
         else:
             print("I don't understand that command.")
