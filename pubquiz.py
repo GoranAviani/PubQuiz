@@ -40,6 +40,8 @@ def process_questions(quizQuestions):
 
 def choose_game_options(quizQuestions):
     #TODO categorese questions
+    #option 1: how many guestions
+    #option 2: what categories
     process_questions(quizQuestions)
 
 
