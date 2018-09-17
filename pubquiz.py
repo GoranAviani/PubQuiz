@@ -62,6 +62,8 @@ def process_questions(quizQuestions, go_noOfQuestions, go_noOfCategory):
     gameQuestionsPreselectedIDs = []
     gameQuestionsPreselected = []
     gameQuestionsPreselectedFinal = []
+    process_questonsMessage = "Error"
+    process_questonsStatus = "Error"
     print("quiz questions are being processed..")
 
     #first get all questions of selected categories
@@ -85,7 +87,7 @@ def process_questions(quizQuestions, go_noOfQuestions, go_noOfCategory):
                 if questionPreselected["id"] not in gameQuestionsPreselectedIDs: #make sure we dont repeat questions
                     gameQuestionsPreselectedFinal.append(question)
                     gameQuestionsCounter += 1
-        print(gameQuestionsPreselectedFinal)
+        #print(gameQuestionsPreselectedFinal)
 
     return (process_questonsMessage, process_questonsStatus, gameQuestionsPreselectedFinal  )
 
@@ -96,6 +98,7 @@ def choose_game_options(quizQuestions):
     print("Game options. 2 questions. category 1. SKIP.")
     go_noOfQuestions = 2
     go_noOfCategory = [1, 2]
+
 
     process_questonsMessage, process_questonsStatus, gameQuestionsPreselectedFinal = process_questions(quizQuestions, go_noOfQuestions, go_noOfCategory)
 
