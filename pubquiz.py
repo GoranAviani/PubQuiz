@@ -1,4 +1,5 @@
-import process_questions
+import game_options
+import load
 
 
 def main_menu():
@@ -7,73 +8,8 @@ def main_menu():
                         "\n\nYour command: ")
     return userCommand
 
-
-
-def load_from_file():
-    quizQuestions = [
-        {
-            "id": 1,
-            "category": 1,
-            "Question": "What is the name of capital of Sweden?",
-            "a": "Oslo",
-            "b": "Stockholm",
-            "c": "Helsinki",
-            "d": "Malmo",
-            "answer": "b"
-        },
-        {
-            "id": 2,
-            "category": 1,
-            "Question": "test?",
-            "a": "test1",
-            "b": "test2",
-            "c": "test3",
-            "d": "test4",
-            "answer": "b"
-        },
-        {
-            "id": 3,
-            "category": 2,
-            "Question": "test2222?",
-            "a": "test1",
-            "b": "test2",
-            "c": "test3",
-            "d": "test4",
-            "answer": "d"
-        },
-        {
-            "id": 4,
-            "category": 3,
-            "Question": "test3333?",
-            "a": "test1",
-            "b": "test2",
-            "c": "test3",
-            "d": "test4",
-            "answer": "c"
-        }
-    ]
-    return quizQuestions
-
-
-
-
-def choose_game_options(quizQuestions):
-    #TODO categorese questions
-    #option 1: how many guestions
-    #option 2: what categories
-    print("Game options. 2 questions. category 1. SKIP.")
-    go_noOfQuestions = 2
-    go_noOfCategory = [1, 2]
-
-
-    process_questonsMessage, process_questonsStatus, gameQuestionsPreselectedFinal = process_questions.process_questions(quizQuestions, go_noOfQuestions, go_noOfCategory)
-
-    print(process_questonsMessage)
-    print(process_questonsStatus)
-    print(gameQuestionsPreselectedFinal)
-
 def main():
-    quizQuestions = (load_from_file())
+    quizQuestions = (load.load_from_file())
 
     while True:
         userCommand = main_menu()
@@ -91,7 +27,7 @@ def main():
 
             # start game
         elif userCommand.upper() == "G":
-            choose_game_options(quizQuestions)
+            game_options.choose_game_options(quizQuestions)
 
 
         else:
