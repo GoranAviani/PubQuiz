@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/../Hangman-the-guessing-game/.idea/Hangman-the-guessing-game.iml" filepath="$PROJECT_DIR$/../Hangman-the-guessing-game/.idea/Hangman-the-guessing-game.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/PubQuiz.iml" filepath="$PROJECT_DIR$/.idea/PubQuiz.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../courses/.idea/courses.iml" filepath="$PROJECT_DIR$/../courses/.idea/courses.iml" />
     </modules>
   </component>
 </project>
