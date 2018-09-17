@@ -8,7 +8,7 @@ def main_menu():
                         "\n\nYour command: ")
     return userCommand
 
-def main():
+def pub_quiz():
     quizQuestions = (load.load_from_file())
 
     while True:
@@ -35,4 +35,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    pub_quiz()
