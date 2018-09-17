@@ -70,7 +70,6 @@ def process_questions(quizQuestions, go_noOfQuestions, go_noOfCategory):
     for question in quizQuestions:
         if question["category"] in go_noOfCategory:
             gameQuestionsPreselected.append(question)
-            gameQuestionsPreselectedIDs.append(question["id"])
 
     #if there are no questions in selected categories
     if len(gameQuestionsPreselected) == 0:
@@ -85,8 +84,9 @@ def process_questions(quizQuestions, go_noOfQuestions, go_noOfCategory):
                 break
             else:
                 if questionPreselected["id"] not in gameQuestionsPreselectedIDs: #make sure we dont repeat questions
-                    gameQuestionsPreselectedFinal.append(question)
+                    gameQuestionsPreselectedFinal.append(questionPreselected)
                     gameQuestionsCounter += 1
+                    gameQuestionsPreselectedIDs.append(questionPreselected["id"])
         #print(gameQuestionsPreselectedFinal)
 
     return (process_questonsMessage, process_questonsStatus, gameQuestionsPreselectedFinal  )
