@@ -4,8 +4,8 @@ def choose_game_options(quizQuestions):
     #TODO categorese questions
     #option 1: how many guestions
     #option 2: what categories
-    print("Game options. 2 questions. category 1. SKIP.")
-    go_noOfQuestions = 2
+    print("Game options: 2 questions. category 1. SKIP.")
+    go_noOfQuestions = 5
     go_noOfCategory = [1, 2]
 
 
