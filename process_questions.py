@@ -28,18 +28,18 @@ def process_questions(quizQuestions, go_noOfQuestions, go_noOfCategory):
                 process_questonsStatus = "YES"
                 break
             else:
-                if questionPreselected["id"] not in gameQuestionsPreselectedIDs: #make sure we dont repeat questions
+                if questionPreselected["id"] not in gameQuestionsPreselectedIDs: #make sure not to repeat questions, for future idea
                     gameQuestionsPreselectedFinal.append(questionPreselected)
                     gameQuestionsCounter += 1
                     gameQuestionsPreselectedIDs.append(questionPreselected["id"])
         #print(gameQuestionsPreselectedFinal)
 
-    #if there were less questions selected in gameQuestionsPreselectedFinal than it was wanted
-    #then send appropriate message about it and give questions that were found
+    #if there are less questions selected in gameQuestionsPreselectedFinal than it was wanted
+    #-send appropriate message about it and give questions that were found
     #TODO if there were less questions offer some questions from some other categories.
     if gameQuestionsCounter < go_noOfQuestions:
         process_questonsMessage = "Questions selected, but not in the number you wanted, there arent any more!"
         process_questonsStatus = "YES"
 
 
-    return (process_questonsMessage, process_questonsStatus, gameQuestionsPreselectedFinal  )
+    return (process_questonsMessage, process_questonsStatus, gameQuestionsPreselectedFinal)
