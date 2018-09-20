@@ -6,8 +6,7 @@ def get_num_of_questions_by_category(quizQuestions):
             numsOfQuestionsByCategory[question["category"]] = 1
         else:
             numsOfQuestionsByCategory[question["category"]] += 1
-    print("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
-    print(numsOfQuestionsByCategory)
+    return quizQuestions, numsOfQuestionsByCategory
 
 def process_questions(quizQuestions, go_noOfQuestions, go_noOfCategory):
     #idea is to process questions by number of needed questions for this quiz,

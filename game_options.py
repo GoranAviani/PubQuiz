@@ -7,8 +7,7 @@ def choose_game_options(quizQuestions):
 
     # 3 TODO how many questions from every category
         #it would be best if ther was pre known number of questions from every category
-
-    process_questions.get_num_of_questions_by_category(quizQuestions)
+    quizQuestions, numsOfQuestionsByCategory = process_questions.get_num_of_questions_by_category(quizQuestions)
 
     # go_noOfQuestions = input("")
     go_selectableCategories = ["1", "2", "3", "4", "5", "6", "7", "8"]
@@ -16,20 +15,19 @@ def choose_game_options(quizQuestions):
     go_noOfCategory = []
 
     while True:
-        print("Type in a number of a category you want to play with, or type D when [D]one selecting:\n"
-              "1 - History\n"
-              "2 - Nature\n"
-              "3 - Sport\n"
-              "4 - Books\n"
-              "6 - Movies\n"
-              "7 - Medicine\n"
-              "8 - Science\n")
+
+        print("")
+        print("Type in a number of a category you want to play with, or type D when [D]one selecting.\n"
+            "Selectable categories:\n\n"
+              "1 - History, 2 - Nature, 3 - Sport,  4 - Books,  6 - Movies, 7 - Medicine,   8 - Science\n")
         userInputCategory = input(" : ")
 
         if userInputCategory.lower() == "d":
+            print("-----------------------------------------------------------------------------------------------------\n")
             for x in go_noOfCategory:
                 print("You have selected {} category".format(x))
             print("Proceeding to game building... Please wait..\n")
+            print("-----------------------------------------------------------------------------------------------------\n")
             break
         elif userInputCategory in go_selectableCategories:
             if userInputCategory not in go_noOfCategory:
