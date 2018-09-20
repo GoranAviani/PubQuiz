@@ -1,3 +1,14 @@
+def get_num_of_questions_by_category(quizQuestions):
+    numsOfQuestionsByCategory = {}
+
+    for question in quizQuestions:
+        if question["category"] not in numsOfQuestionsByCategory:
+            numsOfQuestionsByCategory[question["category"]] = 1
+        else:
+            numsOfQuestionsByCategory[question["category"]] += 1
+    print("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+    print(numsOfQuestionsByCategory)
+
 def process_questions(quizQuestions, go_noOfQuestions, go_noOfCategory):
     #idea is to process questions by number of needed questions for this quiz,
     #  and taht questions dont repeat in a single quiz (thats why id).

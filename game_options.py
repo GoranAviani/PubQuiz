@@ -5,8 +5,13 @@ def choose_game_options(quizQuestions):
     #option 1: how many guestions
     #option 2: what categories
 
+    # 3 TODO how many questions from every category
+        #it would be best if ther was pre known number of questions from every category
+
+    process_questions.get_num_of_questions_by_category(quizQuestions)
+
     # go_noOfQuestions = input("")
-    go_selectableCategories = ["1","2","3","4","5","6","7","8"]
+    go_selectableCategories = ["1", "2", "3", "4", "5", "6", "7", "8"]
     go_noOfQuestions = 2
     go_noOfCategory = []
 
@@ -19,7 +24,7 @@ def choose_game_options(quizQuestions):
               "6 - Movies\n"
               "7 - Medicine\n"
               "8 - Science\n")
-        userInputCategory = input(" ")
+        userInputCategory = input(" : ")
 
         if userInputCategory.lower() == "d":
             for x in go_noOfCategory:
