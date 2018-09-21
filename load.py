@@ -49,6 +49,16 @@ def load_from_file():
             "c": "test3",
             "d": "test4",
             "answer": "a"
+        },
+        {
+            "id": 6,
+            "category": "7",
+            "Question": "test7777?",
+            "a": "test1",
+            "b": "test2",
+            "c": "test3",
+            "d": "test4",
+            "answer": "a"
         }
     ]
     return quizQuestions
