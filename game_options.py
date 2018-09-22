@@ -26,7 +26,7 @@ def input_questions_category_and_numbers(go_selectableCategories, categoryAndNum
 def choose_game_options(quizQuestions):
     #Hardcodes settings:
     go_selectableCategories = ["1", "2", "3", "4", "5", "6", "7", "8"]
-    go_noOfQuestions = 2
+    go_noOfQuestions = 1
     go_noOfCategory = []
 
     #TODO categorese questions
