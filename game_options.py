@@ -27,7 +27,7 @@ def choose_game_options(quizQuestions):
     #Hardcodes settings:
     go_selectableCategories = ["1", "2", "3", "4", "5", "6", "7", "8"]
     go_noOfQuestions = 2
-    go_noOfCategory = []
+    go_noOfCategory = [] 
 
     #TODO categorese questions
     #option 1: how many guestions
