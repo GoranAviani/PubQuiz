@@ -1,6 +1,20 @@
 import process_questions
 
+def input_questions_category_and_numbers():
+    userInputCategory = input("Type in a number of a category you want to play with, or type D when [D]one selecting.\n"
+                              "Selectable categories:\n\n"
+                              "1 - History, 2 - Nature, 3 - Sport,  4 - Books,  6 - Movies, 7 - Medicine,   8 - Science\n")
+    userInputCategotyQuestNums = input(
+        "Type in how many questions do you want to pick from category {}:".format(userInputCategory))
+
+    return userInputCategory, userInputCategotyQuestNums
+
 def choose_game_options(quizQuestions):
+    #Hardcodes settings:
+    go_selectableCategories = ["1", "2", "3", "4", "5", "6", "7", "8"]
+    go_noOfQuestions = 2
+    go_noOfCategory = []
+
     #TODO categorese questions
     #option 1: how many guestions
     #option 2: what categories
@@ -9,18 +23,10 @@ def choose_game_options(quizQuestions):
         #it would be best if ther was pre known number of questions from every category
     quizQuestions, numsOfQuestionsByCategory = process_questions.get_num_of_questions_by_category(quizQuestions)
 
-    # go_noOfQuestions = input("")
-    go_selectableCategories = ["1", "2", "3", "4", "5", "6", "7", "8"]
-    go_noOfQuestions = 2
-    go_noOfCategory = []
+
 
     while True:
-
-        print("")
-        print("Type in a number of a category you want to play with, or type D when [D]one selecting.\n"
-            "Selectable categories:\n\n"
-              "1 - History, 2 - Nature, 3 - Sport,  4 - Books,  6 - Movies, 7 - Medicine,   8 - Science\n")
-        userInputCategory = input(" : ")
+        userInputCategory, userInputCategotyQuestNums = input_questions_category_and_numbers()
 
         if userInputCategory.lower() == "d":
             print("-----------------------------------------------------------------------------------------------------\n")
