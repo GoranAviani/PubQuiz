@@ -1,13 +1,27 @@
 import process_questions
 
-def input_questions_category_and_numbers():
+def input_questions_category_and_numbers(go_selectableCategories, categoryAndNumbers):
+    userInputCategotyQuestNums = "0"
     userInputCategory = input("Type in a number of a category you want to play with, or type D when [D]one selecting.\n"
                               "Selectable categories:\n\n"
                               "1 - History, 2 - Nature, 3 - Sport,  4 - Books,  6 - Movies, 7 - Medicine,   8 - Science\n")
-    userInputCategotyQuestNums = input(
-        "Type in how many questions do you want to pick from category {}:".format(userInputCategory))
 
-    return userInputCategory, userInputCategotyQuestNums
+    if userInputCategory.lower == "d":
+        return userInputCategory, userInputCategotyQuestNums
+    elif userInputCategory in go_selectableCategories:
+        if userInputCategory not in categoryAndNumbers:
+            print("You have sucesfully selected {0}".format(userInputCategory))
+            categoryAndNumbers.append(userInputCategory)
+            userInputCategotyQuestNums = input(
+                "Type in how many questions do you want to pick from category {}:".format(userInputCategory))
+
+            return userInputCategory, userInputCategotyQuestNums
+        else:  # check that category is not already selected
+            print("You cannot select category {}, because you have already selected it".format(userInputCategory))
+    else:
+        print("That is not a known category number")
+
+
 
 def choose_game_options(quizQuestions):
     #Hardcodes settings:
@@ -26,7 +40,7 @@ def choose_game_options(quizQuestions):
 
 
     while True:
-        userInputCategory, userInputCategotyQuestNums = input_questions_category_and_numbers()
+        userInputCategory, userInputCategotyQuestNums = input_questions_category_and_numbers(go_selectableCategories, go_noOfCategory)
 
         if userInputCategory.lower() == "d":
             print("-----------------------------------------------------------------------------------------------------\n")
@@ -35,12 +49,6 @@ def choose_game_options(quizQuestions):
             print("Proceeding to game building... Please wait..\n")
             print("-----------------------------------------------------------------------------------------------------\n")
             break
-        elif userInputCategory in go_selectableCategories:
-            if userInputCategory not in go_noOfCategory:
-                print("You have sucesfully selected {0}".format(userInputCategory))
-                go_noOfCategory.append(userInputCategory)
-            else: #check that category is not already selected
-                print("You cannot select category {}, because you have already selected it".format(userInputCategory))
         else:
             print("That is not a known command")
 
