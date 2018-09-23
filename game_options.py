@@ -1,33 +1,37 @@
 import process_questions
 
-def input_questions_category_and_numbers(go_selectableCategories, categoryAndNumbers):
-    userInputCategotyQuestNums = "0"
-    userInputCategory = input("Type in a number of a category you want to play with, or type D when [D]one selecting.\n"
-                              "Selectable categories:\n\n"
-                              "1 - History, 2 - Nature, 3 - Sport,  4 - Books,  6 - Movies, 7 - Medicine,   8 - Science\n")
+def input_questions_category_and_numbers(go_selectableCategories, selectedCategotyQuestionsbyNums):
+    userInputCategotyNumsOfQustions = "0"
 
-    if userInputCategory.lower == "d":
-        return userInputCategory, userInputCategotyQuestNums
-    elif userInputCategory in go_selectableCategories:
-        if userInputCategory not in categoryAndNumbers:
-            print("You have sucesfully selected {0}".format(userInputCategory))
-            categoryAndNumbers.append(userInputCategory)
-            userInputCategotyQuestNums = input(
-                "Type in how many questions do you want to pick from category {}:".format(userInputCategory))
+    while True:
+        userInputCategory = input("Type in a number of a category you want to play with, or type D when [D]one selecting.\n"
+                                  "Selectable categories:\n\n"
+                                  "1 - History, 2 - Nature, 3 - Sport,  4 - Books,  6 - Movies, 7 - Medicine,   8 - Science\n")
 
-            return userInputCategory, userInputCategotyQuestNums
-        else:  # check that category is not already selected
-            print("You cannot select category {}, because you have already selected it".format(userInputCategory))
-    else:
-        print("That is not a known category number")
+        if userInputCategory.lower() == "d":
+            break
+        elif userInputCategory in go_selectableCategories:
+            if userInputCategory not in selectedCategotyQuestionsbyNums:
+                userInputCategotyNumsOfQustions = input(
+                    "Type in how many questions do you want to pick from category {}:".format(userInputCategory))
+                #TODO need to check if its numeric input, and message if not
+                if userInputCategotyNumsOfQustions.lower == "d":
+                    break
+                selectedCategotyQuestionsbyNums[userInputCategory] = userInputCategotyNumsOfQustions
+                print("You have sucesfully selected category {0} with {1} questions".format(userInputCategory, selectedCategotyQuestionsbyNums))
+            else:  # check that category is not already selected
+                print("You cannot select category {}, because you have already selected it".format(userInputCategory))
+        else:
+            print("That is not a known category number")
 
+    return selectedCategotyQuestionsbyNums  # TODO treba checkat negdi koliko se kategorija vratilo i oda odg odgovarajuce
 
 
 def choose_game_options(quizQuestions):
-    #Hardcodes settings:
+    #Hardcoded settings:
     go_selectableCategories = ["1", "2", "3", "4", "5", "6", "7", "8"]
     go_noOfQuestions = 1
-    go_noOfCategory = []
+    selectedCategotyQuestionsbyNums = {}
 
     #TODO categorese questions
     #option 1: how many guestions
@@ -39,9 +43,14 @@ def choose_game_options(quizQuestions):
 
 
 
-    while True:
-        userInputCategory, userInputCategotyQuestNums = input_questions_category_and_numbers(go_selectableCategories, go_noOfCategory)
 
+    selectedCategotyQuestionsbyNums = input_questions_category_and_numbers(go_selectableCategories, selectedCategotyQuestionsbyNums)
+
+    for k,v in selectedCategotyQuestionsbyNums.values():
+        print(k)
+        print(v)
+
+"""
         if userInputCategory.lower() == "d":
             print("-----------------------------------------------------------------------------------------------------\n")
             for x in go_noOfCategory:
@@ -52,9 +61,9 @@ def choose_game_options(quizQuestions):
         else:
             print("That is not a known command")
 
+"""
+    #process_questonsMessage, process_questonsStatus, gameQuestionsPreselectedFinal = process_questions.process_questions(quizQuestions, go_noOfQuestions, go_noOfCategory)
 
-    process_questonsMessage, process_questonsStatus, gameQuestionsPreselectedFinal = process_questions.process_questions(quizQuestions, go_noOfQuestions, go_noOfCategory)
-
-    print(process_questonsMessage)
-    print(process_questonsStatus)
-    print(gameQuestionsPreselectedFinal)
+    #print(process_questonsMessage)
+    #print(process_questonsStatus)
+    #print(gameQuestionsPreselectedFinal)
