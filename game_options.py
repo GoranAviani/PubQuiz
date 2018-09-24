@@ -15,10 +15,13 @@ def input_questions_category_and_numbers(go_selectableCategories, selectedCatego
                 userInputCategotyNumsOfQustions = input(
                     "Type in how many questions do you want to pick from category {}:".format(userInputCategory))
                 #TODO need to check if its numeric input, and message if not
-                if userInputCategotyNumsOfQustions.lower == "d":
+                if userInputCategotyNumsOfQustions.lower() == "d":
                     break
-                selectedCategotyQuestionsbyNums[userInputCategory] = userInputCategotyNumsOfQustions
-                print("You have sucesfully selected category {0} with {1} questions".format(userInputCategory, selectedCategotyQuestionsbyNums))
+                elif selectedCategotyQuestionsbyNums.isdigit():
+                    selectedCategotyQuestionsbyNums[userInputCategory] = userInputCategotyNumsOfQustions
+                    print("You have sucesfully selected category {0} with {1} questions".format(userInputCategory, selectedCategotyQuestionsbyNums))
+                else:
+                    print("That is not a number")
             else:  # check that category is not already selected
                 print("You cannot select category {}, because you have already selected it".format(userInputCategory))
         else:
