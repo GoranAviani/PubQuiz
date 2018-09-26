@@ -17,15 +17,17 @@ def input_questions_category_and_numbers(go_selectableCategories, selectedCatego
                 #TODO need to check if its numeric input, and message if not
                 if userInputCategotyNumsOfQustions.lower() == "d":
                     break
-                elif selectedCategotyQuestionsbyNums.isdigit():
+                elif userInputCategotyNumsOfQustions.isdigit():
+                    print("i to jeeeeeeeeeeeeeeee" + userInputCategotyNumsOfQustions)
                     selectedCategotyQuestionsbyNums[userInputCategory] = userInputCategotyNumsOfQustions
-                    print("You have sucesfully selected category {0} with {1} questions".format(userInputCategory, selectedCategotyQuestionsbyNums))
+                    print("You have sucesfully selected category {0} with {1} questions".format(userInputCategory, userInputCategotyNumsOfQustions))
                 else:
                     print("That is not a number")
             else:  # check that category is not already selected
                 print("You cannot select category {}, because you have already selected it".format(userInputCategory))
         else:
-            print("That is not a known category number")
+            print("That is not a selectable category.")
+
 
     return selectedCategotyQuestionsbyNums  # TODO treba checkat negdi koliko se kategorija vratilo i oda odg odgovarajuce
 
@@ -48,10 +50,9 @@ def choose_game_options(quizQuestions):
 
 
     selectedCategotyQuestionsbyNums = input_questions_category_and_numbers(go_selectableCategories, selectedCategotyQuestionsbyNums)
-
-    for k,v in selectedCategotyQuestionsbyNums.values():
-        print(k)
-        print(v)
+    for k, v in selectedCategotyQuestionsbyNums.items():
+        print("key {}".format(k))
+        print("value {}".format(v))
 
 """
         if userInputCategory.lower() == "d":
