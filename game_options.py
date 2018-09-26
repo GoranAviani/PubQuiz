@@ -18,7 +18,6 @@ def input_questions_category_and_numbers(go_selectableCategories, selectedCatego
                 if userInputCategotyNumsOfQustions.lower() == "d":
                     break
                 elif userInputCategotyNumsOfQustions.isdigit():
-                    print("i to jeeeeeeeeeeeeeeee" + userInputCategotyNumsOfQustions)
                     selectedCategotyQuestionsbyNums[userInputCategory] = userInputCategotyNumsOfQustions
                     print("You have sucesfully selected category {0} with {1} questions".format(userInputCategory, userInputCategotyNumsOfQustions))
                 else:
@@ -35,7 +34,6 @@ def input_questions_category_and_numbers(go_selectableCategories, selectedCatego
 def choose_game_options(quizQuestions):
     #Hardcoded settings:
     go_selectableCategories = ["1", "2", "3", "4", "5", "6", "7", "8"]
-    go_noOfQuestions = 1
     selectedCategotyQuestionsbyNums = {}
 
     #TODO categorese questions
@@ -54,20 +52,9 @@ def choose_game_options(quizQuestions):
         print("key {}".format(k))
         print("value {}".format(v))
 
-"""
-        if userInputCategory.lower() == "d":
-            print("-----------------------------------------------------------------------------------------------------\n")
-            for x in go_noOfCategory:
-                print("You have selected {} category".format(x))
-            print("Proceeding to game building... Please wait..\n")
-            print("-----------------------------------------------------------------------------------------------------\n")
-            break
-        else:
-            print("That is not a known command")
 
-"""
-    #process_questonsMessage, process_questonsStatus, gameQuestionsPreselectedFinal = process_questions.process_questions(quizQuestions, go_noOfQuestions, go_noOfCategory)
+    process_questonsMessage, process_questonsStatus, gameQuestionsPreselectedFinal = process_questions.process_questions(quizQuestions, selectedCategotyQuestionsbyNums)
 
-    #print(process_questonsMessage)
-    #print(process_questonsStatus)
-    #print(gameQuestionsPreselectedFinal)
+    print(process_questonsMessage)
+    print(process_questonsStatus)
+    print(gameQuestionsPreselectedFinal)
