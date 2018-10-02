@@ -53,8 +53,8 @@ def choose_game_options(quizQuestions):
         print("value {}".format(v))
 
 
-    process_questonsMessage, process_questonsStatus, gameQuestionsPreselectedFinal = process_questions.process_questions(quizQuestions, selectedCategotyQuestionsbyNums)
+    # process_questonsMessage, process_questonsStatus, gameQuestionsPreselectedFinal = process_questions.process_questions(quizQuestions, selectedCategotyQuestionsbyNums)
 
-    print(process_questonsMessage)
-    print(process_questonsStatus)
-    print(gameQuestionsPreselectedFinal)
+   # print(process_questonsMessage)
+    # print(process_questonsStatus)
+    # print(gameQuestionsPreselectedFinal)

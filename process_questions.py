@@ -11,7 +11,7 @@ def get_num_of_questions_by_category(quizQuestions):
 def process_questions(quizQuestions, selectedCategotyQuestionsbyNums):
     #idea is to process questions by number of needed questions for this quiz,
     #  and taht questions dont repeat in a single quiz (thats why id).
-    
+
     gameQuestionsCounter = 0
     gameQuestionsPreselectedIDs = []
     gameQuestionsPreselected = []
