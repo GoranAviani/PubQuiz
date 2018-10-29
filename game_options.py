@@ -45,7 +45,7 @@ def choose_game_options(quizQuestions):
 
     # 3 TODO how many questions from every category
         #it would be best if ther was pre known number of questions from every category
-    quizQuestions, numsOfQuestionsByCategory = process_questions.get_num_of_questions_by_category(quizQuestions)
+    numsOfQuestionsByCategory = process_questions.get_num_of_questions_by_category(quizQuestions)
 
 
 

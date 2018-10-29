@@ -3,17 +3,17 @@ import load
 
 
 def main_menu():
-    userCommand = input("\n\n       ***Wellcome to Pub Quiz MAIN MENU!***\n\n-------------------------------------------------------\n* If you want to add new questions to enter [N]\n* IF you want to list all questions and answers enter [L]"
-                        "\n* If you want to start the new game enter [G]\n* Enter [X] to exit game*\n-------------------------------------------------------"
-                        "\n\nYour command: ")
+    
     return userCommand
 
 def pub_quiz():
     quizQuestions = (load.load_from_file())
 
-    while True:
-        userCommand = main_menu()
 
+    while True:
+        userCommand = input("\n\n       ***Wellcome to Pub Quiz MAIN MENU!***\n\n-------------------------------------------------------\n* If you want to add new questions to enter [N]\n* IF you want to list all questions and answers enter [L]"
+                        "\n* If you want to start the new game enter [G]\n* Enter [X] to exit game*\n-------------------------------------------------------"
+                        "\n\nYour command: ")
         #add new questions
         if userCommand.upper() == "N":
             print("adding new questions")
