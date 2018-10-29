@@ -6,7 +6,7 @@ def get_num_of_questions_by_category(quizQuestions):
             numsOfQuestionsByCategory[question["category"]] = 1
         else:
             numsOfQuestionsByCategory[question["category"]] += 1
-    return quizQuestions, numsOfQuestionsByCategory
+    return numsOfQuestionsByCategory
 
 def process_questions(quizQuestions, selectedCategotyQuestionsbyNums):
     #idea is to process questions by number of needed questions for this quiz,
@@ -16,10 +16,10 @@ def process_questions(quizQuestions, selectedCategotyQuestionsbyNums):
     gameQuestionsPreselectedIDs = []
     gameQuestionsPreselected = []
     gameQuestionsPreselectedFinal = []
-    process_questonsMessage = "Error"
-    process_questonsStatus = "Error"
+    process_questionsMessage = "Error"
+    process_questionsStatus = "Error"
 
-    gameQestionsSelected = []
+    gameQuestionsSelected = []
     print("quiz questions are being processed..")
 
     #first get all questions of selected categories
