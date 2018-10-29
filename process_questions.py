@@ -54,3 +54,10 @@ def process_questions(quizQuestions, selectedCategotyQuestionsbyNums):
 
 
     return (process_questonsMessage, process_questonsStatus, gameQuestionsPreselectedFinal)
+
+def process_category(quizQuestions):
+    categories = []
+    for question in quizQuestions:
+        if question["category"] not in categories:
+            categories.append(question["category"])
+    return categories
