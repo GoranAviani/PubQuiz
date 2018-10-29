@@ -2,10 +2,6 @@ import game_options
 import load
 
 
-def main_menu():
-    
-    return userCommand
-
 def pub_quiz():
     quizQuestions = (load.load_from_file())
 
