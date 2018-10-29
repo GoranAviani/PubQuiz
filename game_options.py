@@ -1,6 +1,6 @@
 import process_questions
 
-def input_questions_category_and_numbers(go_selectableCategories, selectedCategotyQuestionsbyNums):
+def input_questions_category_and_numbers(go_selectableCategories, selectedCategotyQuestionsbyNums, numsOfQuestionsByCategory):
     userInputCategotyNumsOfQustions = "0"
 
     while True:
@@ -11,25 +11,35 @@ def input_questions_category_and_numbers(go_selectableCategories, selectedCatego
 
         if userInputCategory.lower() == "d":
             break
-        elif userInputCategory in go_selectableCategories:
-            if userInputCategory not in selectedCategotyQuestionsbyNums:
-                userInputCategotyNumsOfQustions = input(
-                    "Type in how many questions do you want to pick from category {}:".format(userInputCategory))
-                #TODO need to check if its numeric input, and message if not
-                if userInputCategotyNumsOfQustions.lower() == "d":
-                    break
-                elif userInputCategotyNumsOfQustions.isdigit():
-                    selectedCategotyQuestionsbyNums[userInputCategory] = userInputCategotyNumsOfQustions
-                    print("/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\n"
-                          "You have sucesfully selected category {0} with {1} questions"
-                          "\n/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/".format(userInputCategory, userInputCategotyNumsOfQustions))
-                else:
-                    print("That is not a number")
-            else:  # check that category is not already selected
-                print("You cannot select category {}, because you have already selected it".format(userInputCategory))
-        else:
-            print("That is not a selectable category.")
 
+        if userInputCategory in numsOfQuestionsByCategory:
+
+            if userInputCategory in go_selectableCategories:
+                if userInputCategory not in selectedCategotyQuestionsbyNums:
+                    userInputCategotyNumsOfQustions = input(
+                        "Type in how many questions do you want to pick from category {}:".format(userInputCategory))
+                    #TODO need to check if its numeric input, and message if not
+                    if userInputCategotyNumsOfQustions.lower() == "d":
+                        break
+
+                    if userInputCategotyNumsOfQustions.isdigit():
+                        if int(userInputCategotyNumsOfQustions) <= numsOfQuestionsByCategory[userInputCategory]:
+                            print('ok')
+                            if userInputCategotyNumsOfQustions.isdigit():
+                                selectedCategotyQuestionsbyNums[userInputCategory] = userInputCategotyNumsOfQustions
+                                print("/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\n"
+                                      "You have sucesfully selected category {0} with {1} questions"
+                                      "\n/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/".format(userInputCategory, userInputCategotyNumsOfQustions))
+                        else:
+                            print("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nThat category does not have that many quesions in it!\nxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
+                    else:
+                        print("That is not a number")
+                else:  # check that category is not already selected
+                    print("You cannot select category {}, because you have already selected it".format(userInputCategory))
+            else:
+                print("That is not a selectable category.")
+        else:
+            print("That category does not exist! Try again.")
 
     return selectedCategotyQuestionsbyNums  # TODO treba checkat negdi koliko se kategorija vratilo i oda odg odgovarajuce
 
@@ -47,10 +57,11 @@ def choose_game_options(quizQuestions):
         #it would be best if ther was pre known number of questions from every category
     quizQuestions, numsOfQuestionsByCategory = process_questions.get_num_of_questions_by_category(quizQuestions)
 
+    print("quizQuestions {}".format(quizQuestions)) #not needed to be printed
+    print("numsOfQuestionsByCategory {}".format(numsOfQuestionsByCategory))
 
 
-
-    selectedCategotyQuestionsbyNums = input_questions_category_and_numbers(go_selectableCategories, selectedCategotyQuestionsbyNums)
+    selectedCategotyQuestionsbyNums = input_questions_category_and_numbers(go_selectableCategories, selectedCategotyQuestionsbyNums, numsOfQuestionsByCategory)
     for k, v in selectedCategotyQuestionsbyNums.items():
         print("category key {}".format(k))
         print("number of questions value {}".format(v))
