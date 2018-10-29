@@ -16,10 +16,10 @@ def process_questions(quizQuestions, selectedCategotyQuestionsbyNums):
     gameQuestionsPreselectedIDs = []
     gameQuestionsPreselected = []
     gameQuestionsPreselectedFinal = []
-    process_questonsMessage = "Error"
-    process_questonsStatus = "Error"
+    process_questionsMessage = "Error"
+    process_questionsStatus = "Error"
 
-    gameQestionsSelected = []
+    gameQuestionsSelected = []
     print("quiz questions are being processed..")
 
     #first get all questions of selected categories
