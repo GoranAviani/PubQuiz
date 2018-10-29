@@ -4,7 +4,8 @@ def input_questions_category_and_numbers(go_selectableCategories, selectedCatego
     userInputCategotyNumsOfQustions = "0"
 
     while True:
-        userInputCategory = input("Type in a number of a category you want to play with, or type D when [D]one selecting.\n"
+        userInputCategory = input("------------------------------------------------------------------------------------------------\n"
+                                  "Type in a number of a category you want to play with, or type D when [D]one selecting.\n"
                                   "Selectable categories:\n\n"
                                   "1 - History, 2 - Nature, 3 - Sport,  4 - Books,  6 - Movies, 7 - Medicine,   8 - Science\n")
 
@@ -19,7 +20,9 @@ def input_questions_category_and_numbers(go_selectableCategories, selectedCatego
                     break
                 elif userInputCategotyNumsOfQustions.isdigit():
                     selectedCategotyQuestionsbyNums[userInputCategory] = userInputCategotyNumsOfQustions
-                    print("You have sucesfully selected category {0} with {1} questions".format(userInputCategory, userInputCategotyNumsOfQustions))
+                    print("/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\n"
+                          "You have sucesfully selected category {0} with {1} questions"
+                          "\n/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/".format(userInputCategory, userInputCategotyNumsOfQustions))
                 else:
                     print("That is not a number")
             else:  # check that category is not already selected
@@ -49,8 +52,8 @@ def choose_game_options(quizQuestions):
 
     selectedCategotyQuestionsbyNums = input_questions_category_and_numbers(go_selectableCategories, selectedCategotyQuestionsbyNums)
     for k, v in selectedCategotyQuestionsbyNums.items():
-        print("key {}".format(k))
-        print("value {}".format(v))
+        print("category key {}".format(k))
+        print("number of questions value {}".format(v))
 
 
     # process_questonsMessage, process_questonsStatus, gameQuestionsPreselectedFinal = process_questions.process_questions(quizQuestions, selectedCategotyQuestionsbyNums)
