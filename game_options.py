@@ -51,6 +51,8 @@ def choose_game_options(quizQuestions):
 
     #TODO categorese questions
     #option 1: how many guestions
+    import pdb;pdb.set_trace()
+    number_of_questions = len(quizQuestions)
     #option 2: what categories
 
     # 3 TODO how many questions from every category
