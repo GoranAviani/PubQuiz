@@ -8,6 +8,8 @@ def get_num_of_questions_by_category(quizQuestions):
             numsOfQuestionsByCategory[question["category"]] += 1
     return numsOfQuestionsByCategory
 
+
+#TODO this is not used - still
 def process_questions(quizQuestions, selectedCategotyQuestionsbyNums):
     #idea is to process questions by number of needed questions for this quiz,
     #  and taht questions dont repeat in a single quiz (thats why id).
@@ -27,6 +29,9 @@ def process_questions(quizQuestions, selectedCategotyQuestionsbyNums):
         if question["category"] in go_noOfCategory:
             gameQuestionsPreselected.append(question)
 
+
+    #TODO not needed as there is a chech fo that in
+    #TODO here: if int(userInputCategotyNumsOfQustions) <= numsOfQuestionsByCategory[userInputCategory]: #if the number of question does actually exist
     #if there are no questions in selected categories
     if len(gameQuestionsPreselected) == 0:
         process_questonsMessage = "There were no questions in selected categories!"
@@ -44,6 +49,8 @@ def process_questions(quizQuestions, selectedCategotyQuestionsbyNums):
                     gameQuestionsCounter += 1
                     gameQuestionsPreselectedIDs.append(questionPreselected["id"])
         #print(gameQuestionsPreselectedFinal)
+
+
 
     #if there are less questions selected in gameQuestionsPreselectedFinal than it was wanted
     #-send appropriate message about it and give questions that were found

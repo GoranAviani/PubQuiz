@@ -22,13 +22,13 @@ def input_questions_category_and_numbers(go_selectableCategories, selectedCatego
                 if userInputCategory not in selectedCategotyQuestionsbyNums:
                     userInputCategotyNumsOfQustions = input(
                         "Type in how many questions do you want to pick from category {}:".format(userInputCategory))
-                    #TODO need to check if its numeric input, and message if not
+
                     if userInputCategotyNumsOfQustions.lower() == "d":
                         break
 
                     if userInputCategotyNumsOfQustions.isdigit():
-                        if int(userInputCategotyNumsOfQustions) <= numsOfQuestionsByCategory[userInputCategory]:
-                            print('ok')
+                        if int(userInputCategotyNumsOfQustions) <= numsOfQuestionsByCategory[userInputCategory]: #if the number of question does actually exist
+                            #print('ok')
                             if userInputCategotyNumsOfQustions.isdigit():
                                 selectedCategotyQuestionsbyNums[userInputCategory] = userInputCategotyNumsOfQustions
                                 print("/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\n"
@@ -53,24 +53,24 @@ def choose_game_options(quizQuestions):
     go_selectableCategories = ["1", "2", "3", "4", "5", "6", "7", "8"]
     selectedCategotyQuestionsbyNums = {}
 
-    #TODO categorese questions
+
     #option 1: how many guestions
     number_of_questions = len(quizQuestions)
     #option 2: what categories
     quiz_categories = process_questions.process_category(quizQuestions)
-    # 3 TODO how many questions from every category
+
         #it would be best if ther was pre known number of questions from every category
     numsOfQuestionsByCategory = process_questions.get_num_of_questions_by_category(quizQuestions)
 
 
     selectedCategotyQuestionsbyNums = input_questions_category_and_numbers(go_selectableCategories, selectedCategotyQuestionsbyNums, numsOfQuestionsByCategory)
     for k, v in selectedCategotyQuestionsbyNums.items():
-        print("category key {}".format(k))
-        print("number of questions value {}".format(v))
+        print("Selected category key {}".format(k))
+        print("Selected number of questions value {}".format(v))
 
 
     # process_questonsMessage, process_questonsStatus, gameQuestionsPreselectedFinal = process_questions.process_questions(quizQuestions, selectedCategotyQuestionsbyNums)
 
-   # print(process_questonsMessage)
+   #print(process_questonsMessage)
     # print(process_questonsStatus)
     # print(gameQuestionsPreselectedFinal)
