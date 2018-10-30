@@ -4,6 +4,10 @@ def input_questions_category_and_numbers(go_selectableCategories, selectedCatego
     userInputCategotyNumsOfQustions = "0"
 
     while True:
+        #TODO it would be good if the question number went down for the number of selected questions by the user
+        print("\n\n----------------------------------------------------------------------------------\nTotal number of Questions By Category {}"
+            "\n----------------------------------------------------------------------------------".format(numsOfQuestionsByCategory))
+
         userInputCategory = input("------------------------------------------------------------------------------------------------\n"
                                   "Type in a number of a category you want to play with, or type D when [D]one selecting.\n"
                                   "Selectable categories:\n\n"
@@ -57,9 +61,6 @@ def choose_game_options(quizQuestions):
     # 3 TODO how many questions from every category
         #it would be best if ther was pre known number of questions from every category
     numsOfQuestionsByCategory = process_questions.get_num_of_questions_by_category(quizQuestions)
-
-    print("quizQuestions {}".format(quizQuestions)) #not needed to be printed
-    print("numsOfQuestionsByCategory {}".format(numsOfQuestionsByCategory))
 
 
     selectedCategotyQuestionsbyNums = input_questions_category_and_numbers(go_selectableCategories, selectedCategotyQuestionsbyNums, numsOfQuestionsByCategory)
